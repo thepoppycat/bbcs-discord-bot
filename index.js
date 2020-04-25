@@ -192,7 +192,7 @@ function commCommand(arguments, receivedMessage) {
         } else if (arguments == "baking"){
             receivedMessage.channel.send("The baking committee draws parallels from baking to algorithmic and programmatic concepts in a unique way.")
         } else if (arguments == "media"){
-            receivedMessage.channel.send("The media committee is in charge of the BBCS instagram account for trendy lads, and developing and updating the official BBCS20 webite, https://buildingblocs.github.io/2020/.")
+            receivedMessage.channel.send("The media committee is in charge of the BBCS instagram account for trendy lads, and developing and updating the official BBCS20 webite, https://buildingblocs.github.io.")
         } else if (arguments == "entertainment"){
             receivedMessage.channel.send("The entertainment committee LOVES playing Dance Dance Revolution. Let's spread the joy by dancing!")
         } else if (arguments == "games"){
