@@ -27,22 +27,20 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) { // Prevent bot from responding to its own messages
         return
     }
-    if (receivedMessage.channel.id == '698868628459749407') {
-        let n = receivedMessage.content.indexOf('&')
-        if (n == -1) {
-            return
-        }
-        else {
-            if (receivedMessage.content.slice(n+1, n+8)=="confirm") {
-                confirmCommand(receivedMessage)
-            }
-            else {
-                return
-            }
-        }
+    if (receivedMessage.channel.id == '698868628459749407' && receivedMessage.content.startsWith("&")) {
+		if (receivedMessage.content.slice(n+1, n+8)=="confirm") {
+			confirmCommand(receivedMessage)
+		}
+		else {
+			return
+		}
     } else if (receivedMessage.content.startsWith("&")) {
         processCommand(receivedMessage)
-    }
+    } else if (receivedMessage.channel.id == '698967005369466951'){ // to keep self-assign roles clean
+		client.users.cache.get("248473681066590208").send("Oi <@"+receivedMessage.author.id+"> needs help with self-assigning, pls help "+receivedMessage.author.username+"."); // alert and annoy ace
+		receivedMessage.author.send("Sorry for the inconvenience, but the self-assign roles channel is meant to be kept clean. Please direct any questions at <@248473681066590208> or <@452102847421612045> in the <#698830202372882482> or <#698830202372882482> channel :slight_smile:");
+		receivedMessage.delete();
+	}
 })
 
 function processCommand(receivedMessage) {
