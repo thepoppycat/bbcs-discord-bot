@@ -28,7 +28,7 @@ client.on('message', (receivedMessage) => {
         return
     }
     if (receivedMessage.channel.id == '698868628459749407' && receivedMessage.content.startsWith("&")) {
-		if (receivedMessage.content.slice(n+1, n+8)=="confirm") {
+		if (receivedMessage.content.slice(1, 8)=="confirm") {
 			confirmCommand(receivedMessage)
 		}
 		else {
