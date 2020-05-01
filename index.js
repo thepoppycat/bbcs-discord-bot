@@ -148,36 +148,43 @@ function roleListCommand(arguments, receivedMessage) {
 }
 
 function roleCommand(arguments, receivedMessage) {
-    if (arguments.length > 0) {
-        receivedMessage.author.send("Giving you the role of " + arguments + "...")
-        if (arguments == "workshop"){
-            receivedMessage.member.roles.add('698841625627197441')
-            receivedMessage.author.send("Assignment complete!")
-        } else if (arguments == "coursemology"){
-            receivedMessage.member.roles.add('698841627610972162')
-            receivedMessage.author.send("Assignment complete!")
-        } else if (arguments == "baking"){
-            receivedMessage.member.roles.add('698844527972319253')
-            receivedMessage.author.send("Assignment complete!")
-        } else if (arguments == "media"){
-            receivedMessage.member.roles.add('698841629867507752')
-            receivedMessage.author.send("Assignment complete!")
-        } else if (arguments == "entertainment"){
-            receivedMessage.member.roles.add('698841626348486737')
-            receivedMessage.author.send("Assignment complete!")
-        } else if (arguments == "games"){
-            receivedMessage.member.roles.add('698841627606777868')
-            receivedMessage.author.send("Assignment complete!")
-        } else if (arguments == "lucky"){
-            receivedMessage.member.roles.add('698841630530076752')
-            receivedMessage.author.send("Assignment complete!")
-        } else {
-            receivedMessage.author.send('Try &role [role] instead. Roles are workshop, coursemology, baking, media, games, lucky, and entertainment.')
-        }
-    } else {
-        receivedMessage.author.send("I didn't understand that. Try &role [role] instead. Roles are workshop, coursemology, baking, media, games, lucky, and entertainment.")
-    }
-    receivedMessage.delete();
+	try{
+		
+		if (arguments.length > 0) {
+			receivedMessage.author.send("Giving you the role of " + arguments + "...")
+			if (arguments == "workshop"){
+				receivedMessage.member.roles.add('698841625627197441')
+				receivedMessage.author.send("Assignment complete!")
+			} else if (arguments == "coursemology"){
+				receivedMessage.member.roles.add('698841627610972162')
+				receivedMessage.author.send("Assignment complete!")
+			} else if (arguments == "baking"){
+				receivedMessage.member.roles.add('698844527972319253')
+				receivedMessage.author.send("Assignment complete!")
+			} else if (arguments == "media"){
+				receivedMessage.member.roles.add('698841629867507752')
+				receivedMessage.author.send("Assignment complete!")
+			} else if (arguments == "entertainment"){
+				receivedMessage.member.roles.add('698841626348486737')
+				receivedMessage.author.send("Assignment complete!")
+			} else if (arguments == "games"){
+				receivedMessage.member.roles.add('698841627606777868')
+				receivedMessage.author.send("Assignment complete!")
+			} else if (arguments == "lucky"){
+				receivedMessage.member.roles.add('698841630530076752')
+				receivedMessage.author.send("Assignment complete!")
+			} else {
+				receivedMessage.author.send('Try &role [role] instead. Roles are workshop, coursemology, baking, media, games, lucky, and entertainment.')
+			}
+		} else {
+			receivedMessage.author.send("I didn't understand that. Try &role [role] instead. Roles are workshop, coursemology, baking, media, games, lucky, and entertainment.")
+		}
+		receivedMessage.delete();
+	} catch(e){
+		console.log(e);
+		client.users.cache.get("259680008635809792").send("Oi <@"+receivedMessage.author.id+"> caused the bot to crash "+receivedMessage.author.username+".");
+	}
+		
 }
 
 function commCommand(arguments, receivedMessage) {
