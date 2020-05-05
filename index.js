@@ -71,7 +71,7 @@ function processCommand(receivedMessage) {
         adminNoCommand(arguments, receivedMessage)
     } else if (primaryCommand == "848b3356-d38b-4ca3-88d8-7e0303337f1b"){
 		receivedMessage.channel.send("ea275938-1b07-4633-9db2-52e78bd38e14");
-		wakePartnerBot();
+		wakePartnerBot(receivedMessage);
 	} else {
         receivedMessage.channel.send("I don't understand the command. Try `&help`")
     }
@@ -241,7 +241,7 @@ function testCommand(arguments, receivedMessage) {
     receivedMessage.channel.send("hi <@"+receivedMessage.author.id+">, this is a test message")
 }
 
-function wakePartnerBot(){
+function wakePartnerBot(receivedMessage){
 	// Insert url of other bot here
 	var bot_url = 'https://thepoppycat.herokuapp.com';
 	request(bot_url, { json: false }, (err, res, body) => {
@@ -249,6 +249,7 @@ function wakePartnerBot(){
 	  //console.log(body.url);
 	  //console.log(body.explanation);
 	});
+	receivedMessage.channel.send(bot_url);
 	console.log("request sent to "+bot_url);
 }
 
